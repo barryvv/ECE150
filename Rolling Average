@@ -1,0 +1,32 @@
+#include <iostream>
+
+
+#ifndef MARAMOSET_TESTING
+float input1;
+float input2;
+float input3;
+float rolling_average( float input1,float input2,float input3);
+float rolling_average( float input1,float input2,float input3){
+	return (input1 + input2 + input3)/3;
+}
+int main() {
+	float input_number = {0.0};
+	float calculate_average;
+	while (input_number >=0) {
+		std::cout << "Enter a number." << std::endl;
+		std::cin >> input_number;
+		int num_inputs;
+		num_inputs++;
+		
+		input1 = input2;
+		input2 = input3;
+		input3 = input_number;
+		
+		if (num_inputs >= 3 && input_number >= 0.0){
+			calculate_average = rolling_average(input1, input2, input3);
+			std::cout << "rolling average is:" << calculate_average << std::endl;
+		}		
+	}
+	return 0;
+}
+#endif 
