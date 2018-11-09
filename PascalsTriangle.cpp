@@ -1,0 +1,59 @@
+#include <iostream>
+#ifndef MARMOSET_TESTING
+int main();
+#endif
+double fac(double m);
+double fac(double m){
+	double result=1;
+	for (int i=1; i<=m;i++){
+		result *= i;
+	}
+	return result;
+}
+
+int pascal_triangle(int n);
+int pascal_triangle(int n){
+int coef;
+	int count = 0;
+	for(int i=0; i<=n; i++){
+		for (int j=0; j<=i; j++){
+			coef= fac(i)/(fac(j)*fac(i-j));
+			std::cout << coef << " " ;	
+			count ++;
+		}
+	std::cout << std::endl;
+	}
+	return count;
+}
+
+int pascal_triangle_recursive(int n);
+int pascal_triangle_recursive(int n){
+	int result=0;
+	if (n==0){
+	
+	std::cout << 1;
+	std::cout << std::endl;
+
+	result++;
+	}else{
+	result = pascal_triangle_recursive(n-1);
+	for(int j=0; j<=n;j++){
+	std:: cout << fac(n)/(fac(j)*fac(n-j)) << " ";
+	result++;
+	
+		}
+		std::cout << std::endl;
+	
+	}
+	return result;
+}
+
+#ifndef MARMOSET_TESTING
+int main(){
+	int n;
+	std::cin >> n;
+	std::cout << pascal_triangle(n-1) << std::endl;
+	std::cout << pascal_triangle_recursive(n-1);
+	return 0;
+}
+#endif
